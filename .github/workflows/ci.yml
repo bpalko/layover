@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    name: Lua tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Lua 5.1
+        run: sudo apt-get update -qq && sudo apt-get install -y lua5.1
+
+      - name: Run offline test suite
+        run: lua5.1 tests/run.lua
+
+      - name: Demo routes (non-fatal)
+        run: lua5.1 tests/demo.lua
+
+  lint:
+    name: luacheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install luacheck
+        run: sudo apt-get update -qq && sudo apt-get install -y lua5.1 lua-check
+
+      - name: Lint core modules
+        run: luacheck src/core tests/run.lua tests/lib.lua

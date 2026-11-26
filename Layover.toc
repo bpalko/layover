@@ -1,0 +1,24 @@
+## Interface: 11403, 11500, 11503, 11504, 11505, 11506, 11507
+## Title: Layover
+## Notes: Shortest-path travel router for Classic Era (checklist, no arrow)
+## Author: Kendall
+## Version: 1.0.0
+## SavedVariables: LayoverDB
+## OptionalDeps: TomTom
+## X-Website: https://github.com/bpalko/layover
+## X-Category: Map
+
+src/core/namespace.lua
+src/core/util.lua
+src/core/movement.lua
+src/core/data.lua
+src/core/graph.lua
+src/core/destinations.lua
+src/core/router.lua
+src/core/steps.lua
+src/wow/adapter.lua
+src/wow/saved.lua
+src/wow/events.lua
+src/ui/slash.lua
+src/ui/checklist.lua
+Layover.lua
